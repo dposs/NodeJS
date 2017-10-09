@@ -1,0 +1,4 @@
+
+books-api/node_modules/
+
+*.sqlite

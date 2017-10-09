@@ -1,0 +1,4 @@
+--require test/contract/helpers
+--require babel-core/register
+--reporter spec
+--slow 5000
