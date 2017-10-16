@@ -12,4 +12,6 @@ var config = {
   },
 };
 
-module.exports = config;
+module.exports = () => {
+  return config;
+}

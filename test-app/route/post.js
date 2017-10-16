@@ -1,19 +1,13 @@
-var PostsController = require("../controllers/posts");
-
 module.exports = (app) => {
 
-  var postsController = new PostsController(app);
+  var postController = new app.controller.PostController();
 
   app.route("/posts")
     .get((req, res) => {
-      postsController.getAll()
-        .then(result => {
-          res.status(result.statusCode);
-          res.json(result.data);
-        });
+      postController.getAll(req, res);
     })
     .post((req, res) => {
-      postsController.create(req.body)
+      postController.create(req.body)
         .then(result => {
           res.status(result.statusCode);
           res.json(result.data);
@@ -22,21 +16,21 @@ module.exports = (app) => {
 
   app.route("/post/:id")
     .get((req, res) => {
-      postsController.getById(req.params)
+      postController.getById(req.params)
         .then(result => {
           res.status(result.statusCode);
           res.json(result.data);
         });
     })
     .put((req, res) => {
-      postsController.update(req.body, req.params)
+      postController.update(req.body, req.params)
         .then(result => {
           res.status(result.statusCode);
           res.json(result.data);
         });
     })
     .delete((req, res) => {
-      postsController.delete(req.params)
+      postController.delete(req.params)
         .then(result => {
           res.sendStatus(result.statusCode);
         });

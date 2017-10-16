@@ -1,24 +1,29 @@
-module.exports = (sequelize, DataType) => {
+module.exports = (app) => {
+
+  var Sequelize = app.infra.datasource.Sequelize;
+  var sequelize = app.infra.datasource.sequelize;
+
   const Post = sequelize.define("Post", {
     id: {
-      type: DataType.INTEGER,
+      type: Sequelize.INTEGER,
       primaryKey: true,
       autoIncrement: true
     },
     subject: {
-      type: DataType.STRING,
+      type: Sequelize.STRING,
       allowNull: false,
       validate: {
         notEmpty: true
       }
     },
     content: {
-      type: DataType.STRING,
+      type: Sequelize.STRING,
       allowNull: false,
       validate: {
         notEmpty: true
       }
     }
   });
+
   return Post;
-};
+}

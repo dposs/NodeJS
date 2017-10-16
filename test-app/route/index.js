@@ -3,15 +3,6 @@ var path = require("path");
 
 module.exports = (app) => {
 
-  const dir = path.join(__dirname, "../routes");
-
-  fs.readdirSync(dir).forEach(file => {
-    if (file != "index.js") {
-      var route = require("./" + file);
-      route(app);
-    }
-  });
-
   app.route("/admin")
     .get((req, res) => {
       res.send("Hello Admin!");
