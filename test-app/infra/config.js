@@ -1,11 +1,11 @@
 var config = {
   database: "test-app",
-  username: "",
-  password: "",
+  username: "root",
+  password: "5025",
   params: {
-    dialect: "sqlite",
-    storage: "test-app.sqlite",
-    logging: false,
+    host: "localhost",
+    dialect: "mysql",
+    logging: true,
     define: {
       underscored: true
     }

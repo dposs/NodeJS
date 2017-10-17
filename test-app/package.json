@@ -21,11 +21,14 @@
   },
   "homepage": "https://github.com/dposs/NodeJS#readme",
   "dependencies": {
+    "bluebird": "^3.5.1",
     "body-parser": "^1.18.2",
     "consign": "^0.1.6",
     "express": "^4.16.1",
     "http-status": "^1.0.1",
     "if-env": "^1.0.0",
+    "mysql": "^2.15.0",
+    "mysql2": "^1.4.2",
     "per-env": "^1.0.2",
     "sequelize": "^4.13.8",
     "sqlite3": "^3.1.13"

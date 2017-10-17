@@ -12,7 +12,7 @@ consign()
   .then("dao")
   .then("service")
   .then("controller")
-  .then("route")
+  .then("routes")
   .into(app);
 
 app.set("port", 7000);

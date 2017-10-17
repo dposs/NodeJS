@@ -8,7 +8,7 @@ module.exports = (app) => {
   if (!datasource) {
     const config = app.infra.config;
     const sequelize = new Sequelize(
-      config.datasource,
+      config.database,
       config.username,
       config.password,
       config.params

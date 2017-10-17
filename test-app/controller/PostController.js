@@ -1,15 +1,5 @@
 var HttpStatus = require("http-status");
 
-const defaultResponse = (data, statusCode = HttpStatus.OK) => ({
-  data,
-  statusCode
-});
-
-const errorResponse = (message, statusCode = HttpStatus.BAD_REQUEST) => ({
-  error: message,
-  statusCode
-});
-
 module.exports = (app) => {
 
   class PostController {
@@ -19,46 +9,63 @@ module.exports = (app) => {
     }
 
     getAll(req, res) {
-      return this.postService.getAll()
+      this.postService.getAll()
         .then(result => {
           res.status(HttpStatus.OK);
           res.json(result);
         })
-        .catch(error => {
+        .catch(exception => {
           res.status(HttpStatus.BAD_REQUEST);
-          res.send(error.stack);
+          res.send(exception.message);
         });
     }
 
-    getById(params) {
-      return this.postService.getById(params.id, (error, result) => {
-        if (error) return errorResponse(error.message);
-        return defaultResponse(result);
-      });
+    getById(req, res) {
+      this.postService.getById(req.params.id)
+        .then(result => {
+          res.status(HttpStatus.OK);
+          res.json(result);
+        })
+        .catch(exception => {
+          res.status(HttpStatus.BAD_REQUEST);
+          res.send(exception.message);
+        });
     }
 
-    create(data) {
-      return this.postService.create(data, (error, result) => {
-        if (error) {
-          console.log(error.message);
-          return errorResponse(error.message, HttpStatus.UNPROCESSABLE_ENTITY);
-        }
-        return defaultResponse(result, HttpStatus.CREATED);
-      });
+    create(req, res) {
+      this.postService.create(req.body)
+        .then(result => {
+          res.status(HttpStatus.CREATED);
+          res.json(result);
+        })
+        .catch(exception => {
+          res.status(HttpStatus.UNPROCESSABLE_ENTITY);
+          res.send(exception.message);
+        });
     }
 
-    update(data, params) {
-      return this.postService.update(data, (error, result) => {
-        if (error) return errorResponse(error.message, HttpStatus.UNPROCESSABLE_ENTITY);
-        return defaultResponse(result);
-      });
+    update(req, res) {
+      this.postService.update(req.body, req.params.id)
+        .then(result => {
+          res.status(HttpStatus.OK);
+          res.json(result);
+        })
+        .catch(exception => {
+          res.status(HttpStatus.UNPROCESSABLE_ENTITY);
+          res.send(exception.message);
+        });
     }
 
-    delete(params) {
-      return this.postService.delete(id, (error, result) => {
-        if (error) return errorResponse(error.message, HttpStatus.UNPROCESSABLE_ENTITY);
-        return defaultResponse(result, HttpStatus.NO_CONTENT);
-      });
+    delete(req, res) {
+      this.postService.delete(req.params.id)
+        .then(result => {
+          res.status(HttpStatus.NO_CONTENT);
+          res.json(result);
+        })
+        .catch(exception => {
+          res.status(HttpStatus.UNPROCESSABLE_ENTITY);
+          res.send(exception.message);
+        });
     }
   }
 

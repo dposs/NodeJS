@@ -1,51 +1,37 @@
 module.exports = (app) => {
 
-  var promiseFactory = new app.model.common.PromiseFactory();
-
   class PostService {
 
     constructor() {
       this.postDAO = new app.dao.PostDAO();
     }
 
-    getAllBackup() {
-      return new Promise((resolve, reject) => {
-
-        this.postDAO.findAll()
-          .then(result => {
-            console.log(Object.keys(result).length + " registro(s) encontrado(s).");
-            resolve(result);
-          })
-          .catch(error => reject(error));
-      });
-
-      promiseFactory.create
-    }
-
     getAll() {
-      return promiseFactory.create(this.postDAO.findAll())
-        .then(result => {
-          console.log(Object.keys(result).length + " registro(s) encontrado(s).");
-          resolve(result);
-        })
-        .catchh(error => reject(error))
-        .promise();
+      return this.postDAO.getAll().then(posts => {
+        console.log(posts);
+        return posts;
+      }).catch(exception => {
+        console.log(exception.stack);
+      });
     }
 
-    getById(id, done) {
-      return this.postDAO.findOne(id, callback);
+    getById(id) {
+      return this.postDAO.getById(id);
     }
 
-    create(post, done) {
-      return this.postDAO.create(post, callback);
+    create(post) {
+      return this.postDAO.create(post);
     }
 
-    update(post, id, done) {
-      return this.postDAO.update(post, id);
+    update(post, id) {
+      return this.getById(id).then(foundPost => {
+        if (foundPost) return this.postDAO.update(post, id);
+        throw new Error("Post não localizado.");
+      });
     }
 
-    delete(id, done) {
-      return this.postDAO.destroy(id, callback);
+    delete(id) {
+      return this.postDAO.delete(id);
     }
   }
 

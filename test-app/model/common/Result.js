@@ -2,17 +2,17 @@ module.exports = () => {
   class Result {
 
     constructor(data) {
-      this._error = [];
+      this._errors = [];
       this._data = data;
     }
 
-    catch(error) {
-      this._error.push(error);
+    exception(error) {
+      this._errors.push(error);
       return this;
     }
 
     get hasErrors() {
-      return this._error.length > 0;
+      return this._errors.length > 0;
     }
 
     get data() {
@@ -21,7 +21,7 @@ module.exports = () => {
 
     get error() {
       if (this.hasErrors) {
-        return this._error[0];
+        return this._errors[this._errors.length - 1];
       }
       return null;
     }
