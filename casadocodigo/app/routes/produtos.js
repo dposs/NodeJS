@@ -28,6 +28,16 @@ module.exports = (app) => {
 
       console.log("produto", produto);
 
+      var validatorTitulo = request.assert('titulo','Titulo é obrigatório');
+      validatorTitulo.notEmpty();
+
+      var erros = request.validationErrors();
+
+      if (erros) {
+        response.redirect("/produtos/form");
+        return;
+      }
+
       produtoDAO.insert(produto, (error, result) => {
         response.redirect("/produtos");
       });
