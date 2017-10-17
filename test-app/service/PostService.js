@@ -6,19 +6,6 @@ module.exports = (app) => {
       this.postDAO = new app.dao.PostDAO();
     }
 
-    getAll() {
-      return this.postDAO.getAll().then(posts => {
-        console.log(posts);
-        return posts;
-      }).catch(exception => {
-        console.log(exception.stack);
-      });
-    }
-
-    getById(id) {
-      return this.postDAO.getById(id);
-    }
-
     create(post) {
       return this.postDAO.create(post);
     }
@@ -32,6 +19,14 @@ module.exports = (app) => {
 
     delete(id) {
       return this.postDAO.delete(id);
+    }
+
+    getAll() {
+      return this.postDAO.getAll();
+    }
+
+    getById(id) {
+      return this.postDAO.getById(id);
     }
   }
 

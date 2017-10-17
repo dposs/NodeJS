@@ -8,30 +8,6 @@ module.exports = (app) => {
       this.postService = new app.service.PostService();
     }
 
-    getAll(req, res) {
-      this.postService.getAll()
-        .then(result => {
-          res.status(HttpStatus.OK);
-          res.json(result);
-        })
-        .catch(exception => {
-          res.status(HttpStatus.BAD_REQUEST);
-          res.send(exception.message);
-        });
-    }
-
-    getById(req, res) {
-      this.postService.getById(req.params.id)
-        .then(result => {
-          res.status(HttpStatus.OK);
-          res.json(result);
-        })
-        .catch(exception => {
-          res.status(HttpStatus.BAD_REQUEST);
-          res.send(exception.message);
-        });
-    }
-
     create(req, res) {
       this.postService.create(req.body)
         .then(result => {
@@ -64,6 +40,30 @@ module.exports = (app) => {
         })
         .catch(exception => {
           res.status(HttpStatus.UNPROCESSABLE_ENTITY);
+          res.send(exception.message);
+        });
+    }
+    
+    getAll(req, res) {
+      this.postService.getAll()
+        .then(result => {
+          res.status(HttpStatus.OK);
+          res.json(result);
+        })
+        .catch(exception => {
+          res.status(HttpStatus.BAD_REQUEST);
+          res.send(exception.message);
+        });
+    }
+
+    getById(req, res) {
+      this.postService.getById(req.params.id)
+        .then(result => {
+          res.status(HttpStatus.OK);
+          res.json(result);
+        })
+        .catch(exception => {
+          res.status(HttpStatus.BAD_REQUEST);
           res.send(exception.message);
         });
     }
