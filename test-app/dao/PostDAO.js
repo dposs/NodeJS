@@ -1,13 +1,22 @@
-module.exports = (app) => {
+var GenericDAO = require("./common/GenericDAO");
+var Post = require("../model/Post");
 
-  var GenericDAO = app.dao.common.GenericDAO;
+/**
+ * Post Data Access Object (DAO) Class.
+ * 
+ * @class PostDAO
+ * @extends {GenericDAO}
+ */
+class PostDAO extends GenericDAO {
 
-  class PostDAO extends GenericDAO {
-
-    constructor() {
-      super(app.model.Post);
-    }
+  /**
+   * Creates an instance of PostDAO.
+   * 
+   * @memberof PostDAO
+   */
+  constructor() {
+    super(Post)
   }
-
-  return PostDAO;
 }
+
+module.exports = PostDAO;

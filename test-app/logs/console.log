@@ -1,0 +1,210 @@
+2017-10-27, Fri 14:40:17 GMT-2 ERROR
+Stacktrace: Error: teste 0
+    at PostService.GenericService (C:\Workspace\dposs\NodeJS\test-app\service\common\GenericService.js:8:31)
+    at PostService (C:\Workspace\dposs\NodeJS\test-app\service\PostService.js:7:5)
+    at new PostController (C:\Workspace\dposs\NodeJS\test-app\controller\PostController.js:7:39)
+    at module.exports (C:\Workspace\dposs\NodeJS\test-app\routes\PostRoutes.js:5:24)
+    at C:\Workspace\dposs\NodeJS\test-app\app.js:21:30
+    at Array.forEach (<anonymous>)
+    at Object.<anonymous> (C:\Workspace\dposs\NodeJS\test-app\app.js:20:43)
+    at Module._compile (module.js:624:30)
+    at Object.Module._extensions..js (module.js:635:10)
+    at Module.load (module.js:545:32)
+    at tryModuleLoad (module.js:508:12)
+    at Function.Module._load (module.js:500:3)
+    at Module.require (module.js:568:17)
+    at require (internal/module.js:11:18)
+    at Object.<anonymous> (C:\Workspace\dposs\NodeJS\test-app\index.js:1:73)
+    at Module._compile (module.js:624:30)
+    at Object.Module._extensions..js (module.js:635:10)
+    at Module.load (module.js:545:32)
+    at tryModuleLoad (module.js:508:12)
+    at Function.Module._load (module.js:500:3)
+    at Function.Module.runMain (module.js:665:10)
+    at startup (bootstrap_node.js:187:16)
+2017-10-27, Fri 14:40:17 GMT-2 ERROR : teste 1
+2017-10-27, Fri 14:40:17 GMT-2 WARN : teste 2
+2017-10-27, Fri 14:40:17 GMT-2 INFO : teste 3
+2017-10-27, Fri 14:40:17 GMT-2 VERBOSE : teste 4
+2017-10-27, Fri 14:40:17 GMT-2 DEBUG : teste 5
+2017-10-27, Fri 14:40:17 GMT-2 SILLY : teste 6
+2017-10-27, Fri 14:41:38 GMT-2 ERROR
+Stacktrace: Error: teste 0
+    at PostService.GenericService (C:\Workspace\dposs\NodeJS\test-app\service\common\GenericService.js:8:31)
+    at PostService (C:\Workspace\dposs\NodeJS\test-app\service\PostService.js:7:5)
+    at new PostController (C:\Workspace\dposs\NodeJS\test-app\controller\PostController.js:7:39)
+    at module.exports (C:\Workspace\dposs\NodeJS\test-app\routes\PostRoutes.js:5:24)
+    at C:\Workspace\dposs\NodeJS\test-app\app.js:21:30
+    at Array.forEach (<anonymous>)
+    at Object.<anonymous> (C:\Workspace\dposs\NodeJS\test-app\app.js:20:43)
+    at Module._compile (module.js:624:30)
+    at Object.Module._extensions..js (module.js:635:10)
+    at Module.load (module.js:545:32)
+    at tryModuleLoad (module.js:508:12)
+    at Function.Module._load (module.js:500:3)
+    at Module.require (module.js:568:17)
+    at require (internal/module.js:11:18)
+    at Object.<anonymous> (C:\Workspace\dposs\NodeJS\test-app\index.js:1:73)
+    at Module._compile (module.js:624:30)
+    at Object.Module._extensions..js (module.js:635:10)
+    at Module.load (module.js:545:32)
+    at tryModuleLoad (module.js:508:12)
+    at Function.Module._load (module.js:500:3)
+    at Function.Module.runMain (module.js:665:10)
+    at startup (bootstrap_node.js:187:16)
+2017-10-27, Fri 14:41:38 GMT-2 ERROR : teste 1
+2017-10-27, Fri 14:41:38 GMT-2 WARN : teste 2
+2017-10-27, Fri 14:41:38 GMT-2 INFO : teste 3
+2017-10-27, Fri 14:41:38 GMT-2 VERBOSE : teste 4
+2017-10-27, Fri 14:41:38 GMT-2 DEBUG : teste 5
+2017-10-27, Fri 14:41:38 GMT-2 SILLY : teste 6
+2017-10-27, Fri 14:41:46 GMT-2 ERROR
+Stacktrace: Error: teste 0
+    at PostService.GenericService (C:\Workspace\dposs\NodeJS\test-app\service\common\GenericService.js:8:31)
+    at PostService (C:\Workspace\dposs\NodeJS\test-app\service\PostService.js:7:5)
+    at new PostController (C:\Workspace\dposs\NodeJS\test-app\controller\PostController.js:7:39)
+    at module.exports (C:\Workspace\dposs\NodeJS\test-app\routes\PostRoutes.js:5:24)
+    at C:\Workspace\dposs\NodeJS\test-app\app.js:21:30
+    at Array.forEach (<anonymous>)
+    at Object.<anonymous> (C:\Workspace\dposs\NodeJS\test-app\app.js:20:43)
+    at Module._compile (module.js:624:30)
+    at Object.Module._extensions..js (module.js:635:10)
+    at Module.load (module.js:545:32)
+    at tryModuleLoad (module.js:508:12)
+    at Function.Module._load (module.js:500:3)
+    at Module.require (module.js:568:17)
+    at require (internal/module.js:11:18)
+    at Object.<anonymous> (C:\Workspace\dposs\NodeJS\test-app\index.js:1:73)
+    at Module._compile (module.js:624:30)
+    at Object.Module._extensions..js (module.js:635:10)
+    at Module.load (module.js:545:32)
+    at tryModuleLoad (module.js:508:12)
+    at Function.Module._load (module.js:500:3)
+    at Function.Module.runMain (module.js:665:10)
+    at startup (bootstrap_node.js:187:16)
+2017-10-27, Fri 14:41:46 GMT-2 ERROR : teste 1
+2017-10-27, Fri 14:41:46 GMT-2 WARN : teste 2
+2017-10-27, Fri 14:41:46 GMT-2 INFO : teste 3
+2017-10-27, Fri 14:41:46 GMT-2 VERBOSE : teste 4
+2017-10-27, Fri 14:41:46 GMT-2 DEBUG : teste 5
+2017-10-27, Fri 14:41:46 GMT-2 SILLY : teste 6
+2017-10-27, Fri 14:42:44 GMT-2 ERROR
+Stacktrace: Error: teste 0
+    at PostService.GenericService (C:\Workspace\dposs\NodeJS\test-app\service\common\GenericService.js:8:31)
+    at PostService (C:\Workspace\dposs\NodeJS\test-app\service\PostService.js:7:5)
+    at new PostController (C:\Workspace\dposs\NodeJS\test-app\controller\PostController.js:7:39)
+    at module.exports (C:\Workspace\dposs\NodeJS\test-app\routes\PostRoutes.js:5:24)
+    at C:\Workspace\dposs\NodeJS\test-app\app.js:21:30
+    at Array.forEach (<anonymous>)
+    at Object.<anonymous> (C:\Workspace\dposs\NodeJS\test-app\app.js:20:43)
+    at Module._compile (module.js:624:30)
+    at Object.Module._extensions..js (module.js:635:10)
+    at Module.load (module.js:545:32)
+    at tryModuleLoad (module.js:508:12)
+    at Function.Module._load (module.js:500:3)
+    at Module.require (module.js:568:17)
+    at require (internal/module.js:11:18)
+    at Object.<anonymous> (C:\Workspace\dposs\NodeJS\test-app\index.js:1:73)
+    at Module._compile (module.js:624:30)
+    at Object.Module._extensions..js (module.js:635:10)
+    at Module.load (module.js:545:32)
+    at tryModuleLoad (module.js:508:12)
+    at Function.Module._load (module.js:500:3)
+    at Function.Module.runMain (module.js:665:10)
+    at startup (bootstrap_node.js:187:16)
+2017-10-27, Fri 14:42:44 GMT-2 ERROR : teste 1
+2017-10-27, Fri 14:42:44 GMT-2 WARN : teste 2
+2017-10-27, Fri 14:42:44 GMT-2 INFO : teste 3
+2017-10-27, Fri 14:42:44 GMT-2 VERBOSE : teste 4
+2017-10-27, Fri 14:42:44 GMT-2 DEBUG : teste 5
+2017-10-27, Fri 14:42:44 GMT-2 SILLY : teste 6
+2017-10-27, Fri 14:44:00 GMT-2 ERROR
+Stacktrace: Error: teste 0
+    at PostService.GenericService (C:\Workspace\dposs\NodeJS\test-app\service\common\GenericService.js:8:31)
+    at PostService (C:\Workspace\dposs\NodeJS\test-app\service\PostService.js:7:5)
+    at new PostController (C:\Workspace\dposs\NodeJS\test-app\controller\PostController.js:7:39)
+    at module.exports (C:\Workspace\dposs\NodeJS\test-app\routes\PostRoutes.js:5:24)
+    at C:\Workspace\dposs\NodeJS\test-app\app.js:21:30
+    at Array.forEach (<anonymous>)
+    at Object.<anonymous> (C:\Workspace\dposs\NodeJS\test-app\app.js:20:43)
+    at Module._compile (module.js:624:30)
+    at Object.Module._extensions..js (module.js:635:10)
+    at Module.load (module.js:545:32)
+    at tryModuleLoad (module.js:508:12)
+    at Function.Module._load (module.js:500:3)
+    at Module.require (module.js:568:17)
+    at require (internal/module.js:11:18)
+    at Object.<anonymous> (C:\Workspace\dposs\NodeJS\test-app\index.js:1:73)
+    at Module._compile (module.js:624:30)
+    at Object.Module._extensions..js (module.js:635:10)
+    at Module.load (module.js:545:32)
+    at tryModuleLoad (module.js:508:12)
+    at Function.Module._load (module.js:500:3)
+    at Function.Module.runMain (module.js:665:10)
+    at startup (bootstrap_node.js:187:16)
+2017-10-27, Fri 14:44:00 GMT-2 ERROR : teste 1
+2017-10-27, Fri 14:44:00 GMT-2 WARN : teste 2
+2017-10-27, Fri 14:44:00 GMT-2 INFO : teste 3
+2017-10-27, Fri 14:44:00 GMT-2 VERBOSE : teste 4
+2017-10-27, Fri 14:44:00 GMT-2 DEBUG : teste 5
+2017-10-27, Fri 14:44:00 GMT-2 SILLY : teste 6
+2017-10-27, Fri 14:44:37 GMT-2 ERROR
+Stacktrace: Error: teste 0
+    at PostService.GenericService (C:\Workspace\dposs\NodeJS\test-app\service\common\GenericService.js:8:31)
+    at PostService (C:\Workspace\dposs\NodeJS\test-app\service\PostService.js:7:5)
+    at new PostController (C:\Workspace\dposs\NodeJS\test-app\controller\PostController.js:7:39)
+    at module.exports (C:\Workspace\dposs\NodeJS\test-app\routes\PostRoutes.js:5:24)
+    at C:\Workspace\dposs\NodeJS\test-app\app.js:21:30
+    at Array.forEach (<anonymous>)
+    at Object.<anonymous> (C:\Workspace\dposs\NodeJS\test-app\app.js:20:43)
+    at Module._compile (module.js:624:30)
+    at Object.Module._extensions..js (module.js:635:10)
+    at Module.load (module.js:545:32)
+    at tryModuleLoad (module.js:508:12)
+    at Function.Module._load (module.js:500:3)
+    at Module.require (module.js:568:17)
+    at require (internal/module.js:11:18)
+    at Object.<anonymous> (C:\Workspace\dposs\NodeJS\test-app\index.js:1:73)
+    at Module._compile (module.js:624:30)
+    at Object.Module._extensions..js (module.js:635:10)
+    at Module.load (module.js:545:32)
+    at tryModuleLoad (module.js:508:12)
+    at Function.Module._load (module.js:500:3)
+    at Function.Module.runMain (module.js:665:10)
+    at startup (bootstrap_node.js:187:16)
+2017-10-27, Fri 14:44:37 GMT-2 ERROR : teste 1
+2017-10-27, Fri 14:44:37 GMT-2 WARN : teste 2
+2017-10-27, Fri 14:44:37 GMT-2 INFO : teste 3
+2017-10-27, Fri 14:44:37 GMT-2 VERBOSE : teste 4
+2017-10-27, Fri 14:44:37 GMT-2 DEBUG : teste 5
+2017-10-27, Fri 14:44:37 GMT-2 SILLY : teste 6
+2017-10-27, Fri 14:44:58 GMT-2 ERROR
+Stacktrace: Error: teste 0
+    at PostService.GenericService (C:\Workspace\dposs\NodeJS\test-app\service\common\GenericService.js:8:31)
+    at PostService (C:\Workspace\dposs\NodeJS\test-app\service\PostService.js:7:5)
+    at new PostController (C:\Workspace\dposs\NodeJS\test-app\controller\PostController.js:7:39)
+    at module.exports (C:\Workspace\dposs\NodeJS\test-app\routes\PostRoutes.js:5:24)
+    at C:\Workspace\dposs\NodeJS\test-app\app.js:21:30
+    at Array.forEach (<anonymous>)
+    at Object.<anonymous> (C:\Workspace\dposs\NodeJS\test-app\app.js:20:43)
+    at Module._compile (module.js:624:30)
+    at Object.Module._extensions..js (module.js:635:10)
+    at Module.load (module.js:545:32)
+    at tryModuleLoad (module.js:508:12)
+    at Function.Module._load (module.js:500:3)
+    at Module.require (module.js:568:17)
+    at require (internal/module.js:11:18)
+    at Object.<anonymous> (C:\Workspace\dposs\NodeJS\test-app\index.js:1:73)
+    at Module._compile (module.js:624:30)
+    at Object.Module._extensions..js (module.js:635:10)
+    at Module.load (module.js:545:32)
+    at tryModuleLoad (module.js:508:12)
+    at Function.Module._load (module.js:500:3)
+    at Function.Module.runMain (module.js:665:10)
+    at startup (bootstrap_node.js:187:16)
+2017-10-27, Fri 14:44:58 GMT-2 ERROR : teste 1
+2017-10-27, Fri 14:44:58 GMT-2 WARN : teste 2
+2017-10-27, Fri 14:44:58 GMT-2 INFO : teste 3
+2017-10-27, Fri 14:44:58 GMT-2 VERBOSE : teste 4
+2017-10-27, Fri 14:44:58 GMT-2 DEBUG : teste 5
+2017-10-27, Fri 14:44:58 GMT-2 SILLY : teste 6

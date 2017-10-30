@@ -1,6 +1,8 @@
+var PostController = require("../controller/PostController");
+
 module.exports = (app) => {
 
-  var postController = new app.controller.PostController();
+  var postController = new PostController();
 
   app.route("/posts")
     .get((req, res) => {

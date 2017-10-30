@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "test-unit": "mocha --opts test/mocha.opts test/unit/**/*.js",
     "start": "if-env NODE_ENV=development && npm run start:development || npm run start:production",
     "start:development": "nodemon index.js",
     "start:production": "node index.js",
@@ -24,13 +25,21 @@
     "bluebird": "^3.5.1",
     "body-parser": "^1.18.2",
     "consign": "^0.1.6",
-    "express": "^4.16.1",
+    "express": "^4.16.2",
     "http-status": "^1.0.1",
     "if-env": "^1.0.0",
     "mysql": "^2.15.0",
     "mysql2": "^1.4.2",
     "per-env": "^1.0.2",
     "sequelize": "^4.13.8",
-    "sqlite3": "^3.1.13"
+    "sqlite3": "^3.1.13",
+    "winston": "^2.4.0",
+    "winston-aws-cloudwatch": "^1.6.0"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "chai-as-promised": "^7.1.1",
+    "mocha": "^4.0.1",
+    "sinon": "^4.0.1"
   }
 }

@@ -1,26 +1,31 @@
 var Sequelize = require("sequelize");
-var fs = require("fs");
-var path = require("path");
 
-let datasource = null;
+class DataSource {
 
-module.exports = (app) => {
-  if (!datasource) {
-    const config = app.infra.config;
-    const sequelize = new Sequelize(
-      config.database,
-      config.username,
-      config.password,
-      config.params
-    );
-
-    datasource = {
-      sequelize,
-      Sequelize,
-    };
-
-    sequelize.sync();
+  constructor() {
+    throw new Error("Singleton classes can't be instantied.");
   }
 
-  return datasource;
+  static getInstance(database) {
+    if (!DataSource.instance) {
+      DataSource.initialize(database);
+    }
+    return DataSource.instance;
+  }
+
+  static initialize(database) {
+    this.Sequelize = Sequelize;
+    this.sequelize = new Sequelize(
+      database.name,
+      database.username,
+      database.password,
+      database.params
+    );
+
+    this.sequelize.sync();
+
+    DataSource.instance = this;
+  }
 }
+
+module.exports = DataSource;
