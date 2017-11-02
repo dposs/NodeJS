@@ -1,3 +1,6 @@
+// const url = require('url');
+// const querystring = require('querystring');
+
 module.exports = (app) => {
 
   var connectionFactory = new app.infra.ConnectionFactory();
@@ -28,13 +31,23 @@ module.exports = (app) => {
 
       console.log("produto", produto);
 
-      var validatorTitulo = request.assert('titulo','Titulo é obrigatório');
-      validatorTitulo.notEmpty();
+      request.assert('titulo','Titulo é obrigatório').notEmpty();
+      request.assert('preco','Formato inválido').isFloat();
 
       var erros = request.validationErrors();
 
       if (erros) {
-        response.redirect("/produtos/form");
+        response.format({
+          html: () => {
+            response.status(400).render("produtos/form", {
+              errosValidacao: erros,
+              produto: produto
+            });
+          },
+          json: () => {
+            response.status(400).json(erros);
+          }
+        });
         return;
       }
 
@@ -44,7 +57,10 @@ module.exports = (app) => {
     });
 
   app.get("/produtos/form", (request, response) => {
-    response.render("produtos/form");
+    response.render("produtos/form", {
+      errosValidacao: {},
+      produto: {}
+    });
   });
 
   app.delete("/produtos/:id", (request, response) => {
