@@ -8,9 +8,8 @@ module.exports = (app) => {
 
   app.route("/produtos")
     .get((request, response) => {
-
       produtoDAO.getAll((error, result) => {
-
+        
         if (error) {
           console.error(error);
           response.send(error.message);
@@ -48,6 +47,7 @@ module.exports = (app) => {
             response.status(400).json(erros);
           }
         });
+
         return;
       }
 
