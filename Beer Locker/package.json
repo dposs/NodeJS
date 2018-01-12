@@ -1,0 +1,22 @@
+{
+  "name": "beerlocker",
+  "main": "server.js",
+  "version": "1.0.0",
+  "description": "Beer Locker",
+  "repository": {
+    "type": "GitHub",
+    "url": "https://github.com/dposs/NodeJS"
+  },
+  "license": "MIT",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "mongoose": "^4.13.9",
+    "passport": "^0.4.0",
+    "passport-http": "^0.3.0"
+  }
+}
