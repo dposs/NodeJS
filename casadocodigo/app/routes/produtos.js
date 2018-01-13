@@ -7,12 +7,11 @@ module.exports = (app) => {
   var produtoDAO = new app.dao.ProdutoDAO(connectionFactory);
 
   app.route("/produtos")
-    .get((request, response) => {
+    .get((request, response, next) => {
       produtoDAO.getAll((error, result) => {
         
         if (error) {
-          console.error(error);
-          response.send(error.message);
+          return next(error);
         }
 
         response.format({
@@ -25,13 +24,11 @@ module.exports = (app) => {
         });
       })
     })
-    .post((request, response) => {
+    .post((request, response, next) => {
       var produto = request.body;
 
-      console.log("produto", produto);
-
-      request.assert('titulo','Titulo é obrigatório').notEmpty();
-      request.assert('preco','Formato inválido').isFloat();
+      request.assert('titulo', 'Titulo é obrigatório').notEmpty();
+      request.assert('preco', 'Formato inválido').isFloat();
 
       var erros = request.validationErrors();
 
@@ -52,6 +49,9 @@ module.exports = (app) => {
       }
 
       produtoDAO.insert(produto, (error, result) => {
+        if (error) {
+          return next(error);
+        }
         response.redirect("/produtos");
       });
     });
