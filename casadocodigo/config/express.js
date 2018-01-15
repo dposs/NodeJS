@@ -9,6 +9,7 @@ module.exports = () => {
   app.use(bodyParser.urlencoded({extended: true}));
   app.use(bodyParser.json());
   app.use(expressValidator());
+  app.use(express.static('./app/public'));
 
   consign({cwd: "app"})
     .include("infra")

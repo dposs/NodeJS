@@ -17,9 +17,9 @@ class ProdutoDAO {
   }
 
   delete(params, callback) {
-    //var connection = this.connectionFactory.createConnection();
-    //connection.query('delete from livros where ?', produto, callback);
-    //connection.end();
+    var connection = this.connectionFactory.createConnection();
+    connection.query('delete from livros where ?', produto, callback);
+    connection.end();
   }
 }
 

@@ -1,7 +1,23 @@
-let express = require("../config/express")();
-let request = require("supertest")(express);
+let app = require("../config/express")();
+let request = require("supertest")(app);
 
 describe("# ProdutosController", function() {
+
+  let connectionFactory;
+
+  before(() => {
+    connectionFactory = new app.infra.ConnectionFactory();
+  });
+
+  beforeEach(function(done) {
+    let con = connectionFactory.createConnection();
+    con.query("delete from livros", function(error, result) {
+      con.end();
+      if (error) done(error);
+      else done();
+    });
+  });
+
   it("# Listagem JSON", function(done) {
     request.get("/produtos")
       .set("Accept", "application/json")
