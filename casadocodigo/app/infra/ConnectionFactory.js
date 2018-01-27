@@ -8,7 +8,7 @@ class ConnectionFactory {
               host: "localhost",
               user: "root",
               password: "root",
-              database: "casadocodigo"
+              database: "casadocodigos"
       });
     }
 

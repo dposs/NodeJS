@@ -1,7 +1,7 @@
 module.exports = function(app) {
 
-  var connectionFactory = new app.infra.ConnectionFactory();
-  var produtoDAO = new app.dao.ProdutoDAO(connectionFactory);
+  let connectionFactory = new app.infra.ConnectionFactory();
+  let produtoDAO = new app.dao.ProdutoDAO(connectionFactory);
 
   app.get("/", function(request, response) {
     produtoDAO.getAll(function(erros, resultados) {
