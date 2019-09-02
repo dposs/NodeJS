@@ -113,7 +113,7 @@ class Server {
     let guest = express.Router();
 
     guest.route("/post/topweekmovies")
-      .get((request, response, next) => postController.getTopWeekMovies(request, response).catch(next));
+      .get((request, response, next) => postController.getTopWeekMoviesPost(request, response).catch(next));
 
     // Set Routers
 

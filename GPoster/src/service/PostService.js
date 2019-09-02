@@ -1,3 +1,4 @@
+let ImdbService = require("./ImdbService");
 let TorrentFreakService = require("./TorrentFreakService");
 
 /**
@@ -14,6 +15,7 @@ class PostService {
    */
   constructor() {
     this.torrentFreakService = new TorrentFreakService();
+    this.imdbService = new ImdbService();
   }
 
   /**
@@ -24,8 +26,15 @@ class PostService {
    * @returns {Promise}
    * @memberof TorrentFreakService
    */
-  async getTopWeekMovies(source) {
-    let data = await this.torrentFreakService.getTopWeekMovies(source);
+  async getTopWeekMoviesPost(source) {
+    let movies = await this.torrentFreakService.getTopWeekMovies(source);
+    
+    for (let movie of movies) {
+      let coverUrl = await this.imdbService.getCoverUrl(movie.imdbUrl);
+      movie.setCoverUrl(coverUrl);
+    }
+
+    return movies;
   }
 }
 

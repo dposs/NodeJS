@@ -1,3 +1,5 @@
+let HttpStatus = require("http-status");
+
 let PostService = require("../service/PostService");
 
 /**
@@ -25,14 +27,16 @@ class PostController {
    * @returns {Promise<string>}
    * @memberof PostController
    */
-  async getTopWeekMovies(request, response) {
+  async getTopWeekMoviesPost(request, response) {
     let source = request.body.source;
 
     if (!source) {
       throw new Error("Parâmetro 'source' obrigatório.");
     }
 
-    this.postService.getTopWeekMovies(source);
+    let movies = await this.postService.getTopWeekMoviesPost(source);
+
+    return response.status(HttpStatus.OK).json(movies);
   }
 }
 
