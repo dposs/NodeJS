@@ -18,16 +18,16 @@ class YoutubeService {
   }
 
   /**
-   * Retorna a Url do Trailer de um Filme conforme Nome.
+   * Retorna o Id do Trailer de um Filme conforme Nome.
    *
    * @async
    * @param {string} name
    * @returns {Promise<string>}
    * @memberof YoutubeService
    */
-  async getTrailerUrl(name) {
+  async getTrailerId(name) {
     return this.youtube.searchVideos(name + " trailer legendado", 1)
-      .then(videos => videos && videos.length ? videos[0].url : null)
+      .then(videos => videos && videos.length ? videos[0].id : null)
       .catch(console.log);
   }
 }

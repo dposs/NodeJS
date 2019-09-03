@@ -1,3 +1,9 @@
+let fs = require("fs");
+
+let ejs = require("ejs");
+let moment = require("moment");
+
+let FileService = require("./FileService");
 let ImdbService = require("./ImdbService");
 let TorrentFreakService = require("./TorrentFreakService");
 let YoutubeService = require("./YoutubeService");
@@ -15,6 +21,7 @@ class PostService {
    * @memberof PostService
    */
   constructor() {
+    this.fileService = new FileService();
     this.imdbService = new ImdbService();
     this.torrentFreakService = new TorrentFreakService();
     this.youtubeService = new YoutubeService();
@@ -33,16 +40,37 @@ class PostService {
     
     for (let movie of movies) {
       let coverUrl = await this.imdbService.getCoverUrl(movie.imdbUrl);
-      let youtubeUrl = await this.youtubeService.getTrailerUrl(movie.name);
+      let youtubeVideoId = await this.youtubeService.getTrailerId(movie.name);
       
       movie.setCoverUrl(coverUrl);
       
-      if (youtubeUrl) {
-        movie.setYoutubeUrl(youtubeUrl);
+      if (youtubeVideoId) {
+        movie.setYoutubeVideoId(youtubeVideoId);
       }
     }
 
-    return movies;
+    // Date
+
+    let date = moment(source.match(/\d{2}-\d{2}-\d{2}/g)[0], "MM-DD-YY");
+
+    let from = date.clone().subtract(7, "days");
+    let to = date.clone().subtract(1, "days");
+
+    // HTML Rendering
+
+    let template = this.fileService.read("/resource/html/topweekmovies.html");
+    let html = ejs.render(template, {movies, from, to});
+
+    // Output
+
+    this.fileService.write("/output/topweekmovies/" + date.format("YYYY-MM-DD") + ".html", html);
+
+    return {
+      "from": from.format("DD"), 
+      "to": to.format("DD"),
+      "month": to.format("MMMM"),
+      "movies": movies
+    };
   }
 }
 

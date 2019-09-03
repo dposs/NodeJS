@@ -1,0 +1,70 @@
+<div style="min-width: 500px; border-left: 20px solid transparent; border-right: 20px solid transparent; font-family: Montserrat;">
+  <div style="color: #FFFFFF; background: #1B1B1B; text-align: left; padding: 15px; font-size: 14px; font-weight: 500; border: 1px solid black;">
+    Disclaimer <span style="font-weight: 300; color: #CCCCCC;">| Filmes mais Baixados da Semana | <%=from.format("DD")%> a <%=to.format("DD")%> <%=to.format("MMMM")%></span>
+  </div>
+  <div style="color: #FFFFFF; background: black; text-align: left; padding: 15px; font-size: 12px; margin-bottom: 15px;">
+    <div>Bem vindo ao Top 10 dos filmes mais baixados da semana na rede BitTorrent.</div>
+    <div style="margin-top: 10px;">Os filmes deste informativo são estimados pelo TorrentFreak e são apenas para referência informativa. Não há nenhuma relação do conteúdo abaixo com o GGames. Todos os filmes da lista foram monitorados na versão Web-DL, Webrip, HDRip, BDrip ou DVDrip, salvo indicado o contrário.</div>
+  </div>
+  <table style="background-color: #232323; border-collapse: collapse; text-align: center;" width="100%">
+    <thead style="border-bottom: 2px solid black;">
+      <tr style="border-top: 3px solid #FF3322; height: 40px; background: #1B1B1B;">
+        <th style="border: 1px solid black; color: rgb(230, 230, 230); font-size: 15px; padding: 3px 0px 3px 15px; text-align: left;">
+          <span style="font-size:14px; font-weight: 500; color:#FFFFFF;">Filme</span>
+        </th>
+        <th style="border: 1px solid black; color:#e6e6e6; font-size: 15px; padding: 3px 10px; text-align: left;">
+          <span style="font-size:14px; font-weight: 500; color:#FFFFFF;">Trailer</span>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+    
+      <%for (let movie of movies) {%>
+        <tr style="line-height: 10px; background: #1F182E; border-top: 1px solid black; border-bottom: 1px solid black;"><td colspan="2"></td></tr>
+        <tr style="border-top: 1px solid black; height: 80px;">
+          <td style="color:#e6e6e6; font-size: 13px; padding: 1px; text-align: left; width: 182px; height: 268px; background: url('<%=movie.coverUrl%>'); vertical-align: bottom; border-left: 1px solid black; border-left: 1px solid black;">
+            <table style="height: 100%; width: 100%;">
+              <tr><td style="height: 50%; vertical-align: top;">
+                <table style="color: #FFFFFF; font-size:16px;  width: 100%; background: #1B1B1B;">
+                  <tr>
+                    <td style="font-size: 12px; font-weight: 300; color: #DDDDDD; padding: 5px 12px 5px 12px; width: 30px; text-align: left; vertical-align: middle;">
+                      <div style="float: left;">IMDB<span style="font-weight: 500; margin-left: 4px;"><%=movie.imdbScore%></span></div>
+                      <div><a href="<%=movie.imdbUrl%>" target="_blank"><img src="https://i.imgur.com/6QzROQk.png" style="width: 11px; height: 11px; margin-left: 5px; margin-top: 4px; float: left;"></a></div>
+                      
+                      <%if (movie.rankLast == null) {%>
+                        <div style="float: right; line-height: 18px;"><img src="https://i.imgur.com/LSlhwBZ.png" style="width: 16px;"></div>
+                      <%} else if (movie.rank < movie.rankLast) {%>
+                        <div style="float: right; font-size: 10px; font-weight: 500; color: #99FF00; margin-left: 5px; margin-right: 3px; margin-top: 3px;"><%=movie.rankLast - movie.rank%></div>
+                        <div style="float: right; line-height: 20px;"><img src="https://i.imgur.com/VachPod.png" style="width: 12px;"></div>
+                      <%} else if (movie.rank > movie.rankLast) {%>
+                        <div style="float: right; font-size: 10px; font-weight: 500; color: #FF3333; margin-left: 5px; margin-right: 3px; margin-top: 3px;"><%=movie.rank - movie.rankLast%></div>
+                        <div style="float: right; line-height: 20px;"><img src="https://i.imgur.com/Hj8PMJA.png" style="width: 12px;"></div>
+                      <%}%>
+
+                    </td>
+                  </tr>
+                </table>
+              </td></tr>
+              <tr><td style="height: 50%; vertical-align: bottom;">
+                <table style="color: #FFFFFF; font-size:16px;  width: 100%; background: #1B1B1B;">
+                  <tr>
+                    <td style="font-size: 22px; font-weight: 300; color: #DDDDDD; min-width: 59px; padding: 8px 15px 8px 15px; width: 30px; text-align: center; vertical-align: middle; background: #1B1B1B;">
+                      #<%=movie.rank%>
+                    </td>
+                    <td style="padding: 8px 8px 8px 0px;">
+                      <div style="font-size: 11px; font-weight: 500; line-height: 12px; margin-top: 2px;"><%=movie.name%></div>
+                    </td>
+                  </tr>
+                </table>
+              </td></tr>
+            </table>
+          </td>
+          <td style="background: black;">
+            <iframe style="width: 100%; height: 260px;" src="https://www.youtube.com/embed/<%=movie.youtubeVideoId%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </td>
+        </tr>
+      <%}%>
+
+    </tbody>
+  </table>
+</div>

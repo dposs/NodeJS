@@ -1,5 +1,6 @@
 let bodyParser = require("body-parser");
 let express = require("express");
+let moment = require("moment");
 
 /**
  * Biblioteca de Gerenciamento do Servidor.
@@ -32,6 +33,8 @@ class Server {
 
     server.express = express();
     server.onServerCreate();
+
+    moment.locale("pt-BR");
 
     return server;
   }

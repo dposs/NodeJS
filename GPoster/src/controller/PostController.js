@@ -1,5 +1,6 @@
 let HttpStatus = require("http-status");
 
+let FileService = require("../service/FileService");
 let PostService = require("../service/PostService");
 
 /**
@@ -15,6 +16,7 @@ class PostController {
    * @memberof PostController
    */
   constructor() {
+    this.fileService = new FileService();
     this.postService = new PostService();
   }
 
@@ -34,9 +36,9 @@ class PostController {
       throw new Error("Parâmetro 'source' obrigatório.");
     }
 
-    let movies = await this.postService.getTopWeekMoviesPost(source);
+    let post = await this.postService.getTopWeekMoviesPost(source);
 
-    return response.status(HttpStatus.OK).json(movies);
+    return response.status(HttpStatus.OK).json(post);
   }
 }
 

@@ -16,10 +16,10 @@ class Movie {
       "name": null,
       "rank": null,
       "rankLast": null,
+      "coverUrl": null,
       "imdbScore": null,
       "imdbUrl": null,
-      "youtubeUrl": null,
-      "coverUrl": null
+      "youtubeVideoId": null
     }, data || {});
   }
 
@@ -41,6 +41,10 @@ class Movie {
     return Object.assign(this, {rankLast});
   }
 
+  setCoverUrl(coverUrl) {
+    return Object.assign(this, {coverUrl});
+  }
+
   setImdbScore(imdbScore) {
     return Object.assign(this, {imdbScore});
   }
@@ -49,12 +53,8 @@ class Movie {
     return Object.assign(this, {imdbUrl});
   }
 
-  setYoutubeUrl(youtubeUrl) {
-    return Object.assign(this, {youtubeUrl});
-  }
-
-  setCoverUrl(coverUrl) {
-    return Object.assign(this, {coverUrl});
+  setYoutubeVideoId(youtubeVideoId) {
+    return Object.assign(this, {youtubeVideoId});
   }
 }
 

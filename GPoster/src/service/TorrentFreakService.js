@@ -29,16 +29,18 @@ class TorrentFreakService {
         "rankLast": "td[2]",
         "imdbScore": "td[4]/a[1]",
         "imdbUrl": "td[4]/a[1]/@href",
-        "youtubeUrl": "td[4]/a[2]/@href",
+        "youtubeVideoUrl": "td[4]/a[2]/@href",
       })
       .data(data => {
+        let youtubeVideoId = data.youtubeVideoUrl.match(/v\=(.*)/)[1];
+
         movies.push(new Movie()
           .setName(data.name)
           .setRank(data.rank)
           .setRankLast(data.rankLast)
           .setImdbScore(data.imdbScore)
           .setImdbUrl(data.imdbUrl)
-          .setYoutubeUrl(data.youtubeUrl)
+          .setYoutubeVideoId(youtubeVideoId)
         );
       })
       .log(console.log)
