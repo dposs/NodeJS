@@ -1,4 +1,4 @@
-
+let config = require("config");
 let Youtube = require("simple-youtube-api");
 
 /**
@@ -14,8 +14,7 @@ class YoutubeService {
    * @memberof YoutubeService
    */
   constructor() {
-    this.API_KEY = "AIzaSyC9AxaE_WmJh5yPRNiHqC-eo_dudlvidaU";
-    this.youtube = new Youtube(this.API_KEY);
+    this.youtube = new Youtube(config.get("youtube.key"));
   }
 
   /**
