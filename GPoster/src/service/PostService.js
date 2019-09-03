@@ -1,5 +1,6 @@
 let ImdbService = require("./ImdbService");
 let TorrentFreakService = require("./TorrentFreakService");
+let YoutubeService = require("./YoutubeService");
 
 /**
  * Service de Post.
@@ -14,8 +15,9 @@ class PostService {
    * @memberof PostService
    */
   constructor() {
-    this.torrentFreakService = new TorrentFreakService();
     this.imdbService = new ImdbService();
+    this.torrentFreakService = new TorrentFreakService();
+    this.youtubeService = new YoutubeService();
   }
 
   /**
@@ -31,7 +33,13 @@ class PostService {
     
     for (let movie of movies) {
       let coverUrl = await this.imdbService.getCoverUrl(movie.imdbUrl);
+      let youtubeUrl = await this.youtubeService.getTrailerUrl(movie.name);
+      
       movie.setCoverUrl(coverUrl);
+      
+      if (youtubeUrl) {
+        movie.setYoutubeUrl(youtubeUrl);
+      }
     }
 
     return movies;
