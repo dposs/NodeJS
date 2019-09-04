@@ -108,7 +108,7 @@ class Server {
    * @memberof Server
    */
   initializeCredentials() {
-    new GoogleService().getAuthorization();
+    // new GoogleService().getAuthorization(); Utiizando Simple Youtube API
   }
 
   /**
