@@ -1,9 +1,10 @@
 <h2>Configuração</h2>
 <h3>Youtube API</h3>
-Configurar a API Key do Youtube no arquivo de configuração <code>./config/default.json</code>.
+Configurar a Chave de API do Youtube no arquivo de configuração `./config/default.json`.
 
-<pre>{
+
+```{
   "youtube": {
     "key": "YOUTUBE_API_KEY"
   }
-}</pre>
+}```
