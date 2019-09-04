@@ -1,5 +1,6 @@
-<h1>Configuração</h1>
-./config/default.json
+<h2>Configuração</h2>
+<h3>Youtube API</h3>
+Configurar a API Key do Youtube no arquivo de configuração <code>./config/default.json</code>.
 
 <pre>{
   "youtube": {
