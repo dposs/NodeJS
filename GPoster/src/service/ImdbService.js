@@ -10,7 +10,9 @@ class ImdbService {
   /**
    * Retorna o Url da Imagem de Capa do Filme conforme Url do Filme no IMDB.
    *
-   * @param {*} imdbId
+   * @async
+   * @param {string} url
+   * @returns {Promise<string>}
    * @memberof ImdbService
    */
   async getCoverUrl(url) {

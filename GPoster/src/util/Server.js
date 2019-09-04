@@ -2,6 +2,8 @@ let bodyParser = require("body-parser");
 let express = require("express");
 let moment = require("moment");
 
+let GoogleService = require("../service/GoogleService");
+
 /**
  * Biblioteca de Gerenciamento do Servidor.
  *
@@ -33,8 +35,6 @@ class Server {
 
     server.express = express();
     server.onServerCreate();
-
-    moment.locale("pt-BR");
 
     return server;
   }
@@ -85,10 +85,30 @@ class Server {
    * @memberof Server
    */
   onServerStart() {
+    this.initializeLibraries();
+    this.initializeCredentials();
     this.initializeMiddlewares();
     this.initializeRoutes();
 
     return this;
+  }
+
+  /**
+   * Inicializa as Bibliotecas.
+   *
+   * @memberof Server
+   */
+  initializeLibraries() {
+    moment.locale("pt-BR");
+  }
+
+  /**
+   * Inicializa as Credenciais.
+   *
+   * @memberof Server
+   */
+  initializeCredentials() {
+    new GoogleService().getAuthorization();
   }
 
   /**
