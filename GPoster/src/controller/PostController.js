@@ -38,6 +38,8 @@ class PostController {
 
     let post = await this.postService.getTopWeekMoviesPost(source);
 
+    console.log("Tópico 'Top Week Movies' gerado com sucesso.");
+
     return response.status(HttpStatus.OK).json(post);
   }
 }
