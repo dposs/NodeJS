@@ -22,7 +22,7 @@ class TorrentFreakService {
 
     await osmosis
       .get(url)
-      .find("//div[contains(@class, 'entry-content')]/table/tbody/tr")
+      .find("//div[contains(@class, 'article__body')]/table/tbody/tr")
       .set({
         "name": "td[3]",
         "rank": "td[1]",
