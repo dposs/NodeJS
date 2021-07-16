@@ -9,6 +9,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "mineflayer": "~3.7.0"
+    "mineflayer": "~3.7.0",
+    "mineflayer-dashboard": "~2.0.0",
+    "prismarine-viewer": "~1.19.3"
   }
 }
