@@ -1,15 +1,20 @@
 const mineflayer = require("mineflayer");
 const { mineflayer: mineflayerViewer } = require("prismarine-viewer");
 
+/**
+ * Accounts
+ * - HomePC: Apocalipse:5025.. / Neoblade:Da**31****
+ * - WorkPC: RamiroG3X:6469..
+ */
 const SERVER = "200.9.154.172"
-const USERNAME = "RamiroG3X"; // "Apocalipse"
-const PASSWORD = "646979"; // "502510"
+const USERNAME = "RamiroG3X";
+const PASSWORD = "646979";
 
 const bot = mineflayer.createBot({
   host: SERVER,
   username: USERNAME,
   version: "1.16.5", // only set if you need a specific version or snapshot (ie: "1.8.9" or "1.16.5"), otherwise it"s set automatically
-  // password: "502510", // minecraft password, comment out if you want to log into online-mode=false servers
+  // password: "123456", // minecraft password, comment out if you want to log into online-mode=false servers
   // port: 25565, // only set if you need a port that isn"t 25565
   // auth: "mojang" // only set if you need microsoft auth, then set this to "microsoft"
 });
@@ -39,8 +44,16 @@ bot.on("whisper", (username, message) => {
 
 bot.once("spawn", () => {
   mineflayerViewer(bot, {port: 3000, firstPerson: true});
-  
-  delay(() => chat("/login " + PASSWORD))
+  login();
+});
+
+/**
+ * Log user in and enter Genesis Server.
+ *
+ * @returns
+ */
+async function login() {
+  return delay(() => chat("/login " + PASSWORD))
     .then(() => {
       return delay(() => bot.setQuickBarSlot(4), {min: 2000, max: 4000});
     })
@@ -50,7 +63,7 @@ bot.once("spawn", () => {
     .then(() => {
       return delay(() => bot.clickWindow(10, 0, 0), {min: 2000, max: 4000});
     });
-});
+}
 
 /**
  * Send and log a chat message.
