@@ -7,8 +7,8 @@ const { mineflayer: mineflayerViewer } = require("prismarine-viewer");
  * - WorkPC: RamiroG3X:6469..
  */
 const SERVER = "200.9.154.172"
-const USERNAME = "RamiroG3X";
-const PASSWORD = "646979";
+const USERNAME = "Apocalipse";
+const PASSWORD = "502510";
 
 const bot = mineflayer.createBot({
   host: SERVER,
@@ -28,18 +28,39 @@ bot.once("inject_allowed", () => {
   global.console.error = bot.dashboard.log
 });
 
+// @todo mensagens com "]" no meio
+bot.addChatPattern("tell", new RegExp(".{1}\] (.*) \→ Apocalipse\» (.*)"), {parse: true});
+
 /**
- * Whisper Event.
+ * Tell Event.
  */
-bot.on("whisper", (username, message) => {
-  var answers = ["Opa", "fala", "oi?", "oi", "opa", "e ae", "dae"];
-  var answer = answers[Math.floor(Math.random() * answers.length)];
+bot.on("chat:tell", (matches) => {
+  matches.forEach(match => {
+    let username = match[0];
+    let message = match[1];
 
-  bot.dashboard.log(username + ": " + message);
+    var answers = ["Opa", "fala", "oi?", "oi", "opa", "e ae", "dae"];
+    var answer = answers[Math.floor(Math.random() * answers.length)];
 
-  delay(() => bot.whisper(username, answer), {max: 8000}).then(() => {
-    delay(() => bot.quit(username + " sent: " + message), {min: 3000, max: 5000});
+    bot.dashboard.log(username + ": " + message);
+    
+    delay(() => bot.whisper(username, answer), {max: 8000}).then(() => {
+      bot.dashboard.log("/tell " + username + " " + answer);
+      return delay(() => bot.quit(), {min: 3000, max: 5000});
+    }).then(() => {
+      bot.dashboard.log("quited");
+    });
   });
+});
+
+bot.on("whisper", (username, message) => {
+  bot.dashboard.log("whisper");
+  bot.dashboard.log(username + ": " + message);
+});
+
+bot.on("chat:whisper", (username, message) => {
+  bot.dashboard.log("cat:whisper");
+  bot.dashboard.log(username + ": " + message);
 });
 
 bot.once("spawn", () => {
