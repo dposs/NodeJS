@@ -15,7 +15,7 @@
     "osmosis": "~1.1.10",
     "simple-youtube-api": "~5.2.1",
     "superagent": "~5.1.0",
-    "xmldom": "~0.1.27",
+    "xmldom": "~0.6.0",
     "xpath": "~0.0.27"
   },
   "devDependencies": {},
